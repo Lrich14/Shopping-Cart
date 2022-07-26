@@ -1,15 +1,3 @@
-# Shopping-Cart
-## Set-up Instructions
-Welcome to the Shopping Cart Exercise! To start, create a new remote project repository in Github called "shopping-cart". When creating the repo, make sure to add a "README.md" file and a Python-flavored ".gitignore" file. After this process is complete, you should be able to view the repo on GitHub at an address like https://github.com/YOUR_USERNAME/shopping-cart.
-
-After creating the remote repo, use GitHub Desktop software or the command-line to "clone" it onto your computer. Choose the Desktop location to store the repo.
-
-After cloning the repo, navigate there from the command-line:
-```
-cd ~/Desktop/shopping-cart 
-```
-Next, use your text editor to create a new file called "shopping_cart.py" and enter the following:
-```
 # shopping_cart.py
 
 products = [
@@ -24,7 +12,6 @@ products = [
     {"id":9, "name": "Light Strawberry Blueberry Yogurt", "department": "dairy eggs", "aisle": "yogurt", "price": 6.50},
     {"id":10, "name": "Sparkling Orange Juice & Prickly Pear Beverage", "department": "beverages", "aisle": "water seltzer sparkling water", "price": 2.99},
     {"id":11, "name": "Peach Mango Juice", "department": "beverages", "aisle": "refrigerated", "price": 1.99},
-    {"id":12, "name": "Chocolate Fudge Layer Cake", "department": "frozen", "aisle": "frozen dessert", "price": 18.50},
     {"id":13, "name": "Saline Nasal Mist", "department": "personal care", "aisle": "cold flu allergy", "price": 16.00},
     {"id":14, "name": "Fresh Scent Dishwasher Cleaner", "department": "household", "aisle": "dish detergents", "price": 4.99},
     {"id":15, "name": "Overnight Diapers Size 6", "department": "babies", "aisle": "diapers wipes", "price": 25.50},
@@ -49,28 +36,6 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
 
-# TODO: write some Python code here to produce the desired output
 
 print(products)
-```
-At this point make sure to save your work.
 
-##Further Set-up
-If you choose to tackle bonus challenges, third-pary packages will be required.  Enter the below in your command line, if so:
-```
-# IF USING THIRD-PARTY PACKAGES, USE A NEW ENV:
-conda create -n shopping-env python=3.8 
-```
-
-```
-conda activate shopping-env
-```
-
-```
-pip install -r requirements.txt # (after specifying desired packages inside)
-```
-
-Finally,  in your command line enter the below to run the Python script. If you see the provided "products" data structure, you're ready to move on to project development. 
-```
-python shopping_cart.py
-```
