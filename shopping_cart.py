@@ -68,7 +68,9 @@ website = "www.RichsGroceries.com"
 print(website)
 print("----------")
 my_datetime = datetime.datetime.now()
-print("Checkout at:", my_datetime.strftime("%Y-%m-%d %H:%M:%S"))
+# I found from this Stack overflow link (https://stackoverflow.com/questions/1759455/how-can-i-account-for-period-am-pm-using-strftime)
+# ... how to include AM/PM into my datetime output
+print("Checkout at:", my_datetime.strftime("%Y-%m-%d %I:%M:%S %p")) 
 print("----------")
 
 print("Selected Products:")
