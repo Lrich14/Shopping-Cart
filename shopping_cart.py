@@ -78,15 +78,6 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    #print("----------")
-    #Grocery_store_name = "Rich's Groceries"
-    #print(Grocery_store_name)
-    #website = "www.RichsGroceries.com"
-    #print(website)
-    #print("----------")
-    #now = datetime.datetime.now()
-    #print("Checkout at:", now)
-    #print("----------")
  #   print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
     print("...", " ", matching_product["name"], " ", to_usd(matching_product["price"]))
 
