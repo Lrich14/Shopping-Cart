@@ -67,8 +67,8 @@ print(Grocery_store_name)
 website = "www.RichsGroceries.com"
 print(website)
 print("----------")
-now = datetime.datetime.now()
-print("Checkout at:", now)
+my_datetime = datetime.datetime.now()
+print("Checkout at:", my_datetime.strftime("%Y-%m-%d %H:%M:%S"))
 print("----------")
 
 

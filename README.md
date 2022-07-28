@@ -74,3 +74,46 @@ Finally,  in your command line enter the below to run the Python script. If you 
 ```
 python shopping_cart.py
 ```
+
+## Helpful Tool
+For further assistance in setting up and later developing this project, please see the **below** link to a guided screencast.
+[Guided Screencast](https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be)
+
+# Development and Usage
+## Basic Requirements
+In order to run this project, you will need to have an understanding of the following functions, statements, modules, and datatypes:
+1. input function
+2. if/else/break
+3. Datetime
+4. For loops
+5. list datatype
+6. to_usd function
+
+An example of the expected desired output should look something like this:
+> ----------
+>
+> Rich's Groceries
+>
+> www.Richsgroceries.com
+> 
+> ----------
+>
+> Checkout at: 2022-07-28 11:32:57
+>
+> ----------
+>
+> Selected Product: All-Seasons Salt  $4.99
+>
+> Selected Product: Robust Golden Unsweetened Oolong Tea  $2.49
+>
+> ----------
+>
+> Subtotal Price: $7.49
+>
+> Tax: $0.65
+>
+> Total Price: $8.13
+>
+> ----------
+>
+> Thanks for shopping, see you soon!
