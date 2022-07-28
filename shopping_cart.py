@@ -71,7 +71,7 @@ my_datetime = datetime.datetime.now()
 print("Checkout at:", my_datetime.strftime("%Y-%m-%d %H:%M:%S"))
 print("----------")
 
-
+print("Selected Products:")
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
@@ -86,7 +86,7 @@ for selected_id in selected_ids:
     #print("Checkout at:", now)
     #print("----------")
  #   print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
-    print("Selected Product:", matching_product["name"], " ", to_usd(matching_product["price"]))
+    print("...", " ", matching_product["name"], " ", to_usd(matching_product["price"]))
 
 print("----------")
 #print("Subtotal Price:", (str(total_price)))
