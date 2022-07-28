@@ -42,6 +42,7 @@ def to_usd(my_price):
 #print(products)
 
 # capture and validate user inputs
+import datetime
 
 selected_ids = []
 total_price = 0
@@ -66,12 +67,21 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
+    Grocery_store_name = "Rich's Groceries"
+    print(Grocery_store_name)
+    website = "www.RichsGroceries.com"
+    print(website)
+    print("----------")
+    now = datetime.datetime.now()
+    print("Checkout at:", now)
+    print("----------")
     print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
 #except IndexError as e:
 #       print("Uh oh, product not found.  Please try again.")
 
  
 print("Total Price:", (str(total_price)))
+print("Thanks for shopping, see you again!")
 
 
 #Grocery_store_name = "Rich's Groceries"
@@ -79,5 +89,6 @@ print("Total Price:", (str(total_price)))
 #website = "www.RichsGroceries.com"
 #print(website)
 #print("----------")
-#print("Checkout at:", "2022-08-01", "05:30 PM")
+#now = datetime.datetime.now()
+#print("Checkout at:", now)
 #print("----------")
