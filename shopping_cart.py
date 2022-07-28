@@ -41,10 +41,9 @@ def to_usd(my_price):
 
 #print(products)
 
-
 # capture and validate user inputs
-selected_products = []
 
+selected_ids = []
 total_price = 0
 
 while True:
@@ -53,16 +52,32 @@ while True:
         break
     else:
         try:
-            matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-            matching_product = matching_products[0]
-            selected_products.append(matching_product)
-            total_price = total_price + matching_product['price']
+            #matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+            #matching_product = matching_products[0]
+            #total_price = total_price + matching_product['price']
+            #print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
+            selected_ids.append(selected_id)
         except IndexError as e:
             print("Uh oh, product not found.  Please try again.")
 
+# Info Output 
+
+for selected_id in selected_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+    matching_product = matching_products[0]
+    total_price = total_price + matching_product["price"]
     print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
-#print("Shopping Cart Item Identifiers Include:", "[", selected_products["name"], " ", selected_products["price"], "]")
+#except IndexError as e:
+#       print("Uh oh, product not found.  Please try again.")
 
- # Info Output 
-
+ 
 print("Total Price:", (str(total_price)))
+
+
+#Grocery_store_name = "Rich's Groceries"
+#print(Grocery_store_name)
+#website = "www.RichsGroceries.com"
+#print(website)
+#print("----------")
+#print("Checkout at:", "2022-08-01", "05:30 PM")
+#print("----------")
