@@ -55,7 +55,7 @@ print(products)
 ```
 At this point make sure to save your work.
 
-##Further Set-up
+## Further Set-up
 If you choose to tackle bonus challenges, third-pary packages will be required.  Enter the below in your command line, if so:
 ```
 # IF USING THIRD-PARTY PACKAGES, USE A NEW ENV:

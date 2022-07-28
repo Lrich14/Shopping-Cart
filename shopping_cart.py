@@ -39,5 +39,30 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
-print(products)
+#print(products)
 
+
+# capture and validate user inputs
+selected_products = []
+
+total_price = 0
+
+while True:
+    selected_id = input("Please input a product id, or 'DONE':")
+    if selected_id.upper() == "DONE":
+        break
+    else:
+        try:
+            matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+            matching_product = matching_products[0]
+            selected_products.append(matching_product)
+            total_price = total_price + matching_product['price']
+        except IndexError as e:
+            print("Uh oh, product not found.  Please try again.")
+
+    print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
+#print("Shopping Cart Item Identifiers Include:", "[", selected_products["name"], " ", selected_products["price"], "]")
+
+ # Info Output 
+
+print("Total Price:", (str(total_price)))
