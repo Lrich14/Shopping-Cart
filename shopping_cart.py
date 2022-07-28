@@ -39,8 +39,6 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
-#print(products)
-
 # capture and validate user inputs
 import datetime
 
@@ -67,6 +65,7 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
+    print("----------")
     Grocery_store_name = "Rich's Groceries"
     print(Grocery_store_name)
     website = "www.RichsGroceries.com"
@@ -75,12 +74,18 @@ for selected_id in selected_ids:
     now = datetime.datetime.now()
     print("Checkout at:", now)
     print("----------")
-    print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
-#except IndexError as e:
-#       print("Uh oh, product not found.  Please try again.")
+ #   print("Selected Product:", matching_product["name"], " ", str(matching_product["price"]))
+    print("Selected Product:", matching_product["name"], " ", to_usd(matching_product["price"]))
 
- 
-print("Total Price:", (str(total_price)))
+print("----------")
+#print("Subtotal Price:", (str(total_price)))
+print("Subtotal Price:", to_usd(total_price))
+# Adding tax component
+
+Tax = .0875*total_price
+print("Tax:", to_usd(Tax))
+print("Total Price:", to_usd(total_price+Tax))
+print("----------")
 print("Thanks for shopping, see you again!")
 
 
