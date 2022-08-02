@@ -39,6 +39,8 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
+
+
 # capture and validate user inputs
 import datetime
 
@@ -92,4 +94,53 @@ print("Total Price:", to_usd(total_price+Tax))
 print("----------")
 print("Thanks for shopping, see you again!")
 
+# I attempted to follow the guidelines to set up the "send email" further exploration challenge
+# ...however I continuously ran to errors on that I was not sure how to fix
+# ... this code is not included in the Readme since it was not fully developed, but i wanted to include at least the steps I took getting the API key, etc.
+# ... I included it in a .env file I created
+import os
+from dotenv import load_dotenv
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
+load_dotenv()
+
+SENDGRID_API_KEY = os.getenv("SENGRID_API_KEY", default="OOPS, please set env var called 'SENDGRID_API_KEY'")
+SENDER_ADDRESS = os.getenv("SENDER_ADDRESS", default="OOPS, please set env var called 'SENDER_ADDRESS'")
+
+client = SendGridAPIClient(SENDGRID_API_KEY) #> <class 'sendgrid.sendgrid.SendGridAPIClient>
+#print("CLIENT:", type(client))
+
+subject = "Your Receipt from the Rich's Groceries"
+
+html_content = "Checkout at:" + my_datetime.strftime("%Y-%m-%d %I:%M:%S %p") + "/" + "Total Price:" + to_usd(total_price+Tax)
+#print("HTML:", html_content)
+
+
+# FYI: we'll need to use our verified SENDER_ADDRESS as the `from_email` param
+# ... but we can customize the `to_emails` param to send to other addresses
+message = Mail(from_email=SENDER_ADDRESS, to_emails=SENDER_ADDRESS, subject=subject, html_content=html_content)
+# mail.add_personalization(to_emails)
+
+try:
+    response = client.send(message)
+    print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
+    print(response.status_code) #> 202 indicates SUCCESS
+    print(response.body)
+    print(response.headers)
+
+except Exception as err:
+    print(type(err))
+    print(err)
+
+
+# Email input
+#while True:
+#    user_email = input("Would you like to receive an email receipt (y/n)?")
+#    user_email = user_email.lower()
+#    user_choices = ["y", "n"]
+#    if user_choices == "n":
+#        break
+#    else:
+#        to_email = input("Please enter your email address:")
 
