@@ -120,7 +120,7 @@ An example of the expected desired output should look something like this:
 
 ## Further Exploration
 ### Sending an email to yourself
-In order to approach this further exploratio challenge, you will need to follow these steps:
+In order to approach this further exploration challenge, you will need to follow these steps:
 
 #### Installation
 From within an active virtual environment, install the sendgrid package:
