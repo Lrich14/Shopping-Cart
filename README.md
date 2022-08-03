@@ -55,7 +55,7 @@ print(products)
 ```
 At this point make sure to save your work.
 
-## Further Set-up
+### Further Set-up
 If you choose to tackle bonus challenges, third-pary packages will be required.  Enter the below in your command line, if so:
 ```
 # IF USING THIRD-PARTY PACKAGES, USE A NEW ENV:
@@ -75,12 +75,12 @@ Finally,  in your command line enter the below to run the Python script. If you 
 python shopping_cart.py
 ```
 
-## Helpful Tool
+### Helpful Tool
 For further assistance in setting up and later developing this project, please see the **below** link to a guided screencast.
 [Guided Screencast](https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be)
 
-# Development and Usage
-## Basic Requirements
+## Development and Usage
+### Basic Requirements
 In order to run this project, you will need to have an understanding of the following functions, statements, modules, and datatypes:
 1. input function
 2. if/else/break
@@ -117,3 +117,62 @@ An example of the expected desired output should look something like this:
 > ----------
 >
 > Thanks for shopping, see you soon!
+
+## Further Exploration
+### Sending an email to yourself
+In order to approach this further exploratio challenge, you will need to follow these steps:
+
+#### Installation
+From within an active virtual environment, install the sendgrid package:
+```
+pip install sendgrid
+```
+
+#### Setup
+Next,  sign up for a SendGrid account [SendGrid](app.sendgrid.com), then follow the instructions to complete your "Single Sender Verification", clicking the link in a confirmation email to verify your account. 
+
+Create a SendGrid API Key with "full access" permissions and store your API Key value in an environment variable called "SENDGRID_API_KEY".
+
+Also set an environment variable called "SENDER_ADDRESS" to be the same email address as the single sender address you associated with your SendGrid account.
+
+Finally, use a ".env" file to manage these environment variables.
+
+#### Usage
+Send yourself an email using the below structure code.  Make sure to edit the subject and html_content as it pertains to your desired output. If you see a status code of 202, it means the message was sent successfully.
+
+```
+import os
+from dotenv import load_dotenv
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
+load_dotenv()
+
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY", default="OOPS, please set env var called 'SENDGRID_API_KEY'")
+SENDER_ADDRESS = os.getenv("SENDER_ADDRESS", default="OOPS, please set env var called 'SENDER_ADDRESS'")
+
+client = SendGridAPIClient(SENDGRID_API_KEY) #> <class 'sendgrid.sendgrid.SendGridAPIClient>
+print("CLIENT:", type(client))
+
+subject = "Your Receipt from the Green Grocery Store"
+
+html_content = "Hello World"
+print("HTML:", html_content)
+
+# FYI: we'll need to use our verified SENDER_ADDRESS as the `from_email` param
+# ... but we can customize the `to_emails` param to send to other addresses
+message = Mail(from_email=SENDER_ADDRESS, to_emails=SENDER_ADDRESS, subject=subject, html_content=html_content)
+
+try:
+    response = client.send(message)
+
+    print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
+    print(response.status_code) #> 202 indicates SUCCESS
+    print(response.body)
+    print(response.headers)
+
+except Exception as err:
+    print(type(err))
+    print(err)
+```
+Finally check your inbox to see the email.
